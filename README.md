@@ -2,15 +2,15 @@ FairLib
 =======
 
 Java lib with set of classes to work with Betfair API
+_ _ _
 
-
-=== BUILD ===
+Build
+-----
 
 FairLib project depends on the following projects:
-1. Betfair-Provider: https://github.com/komarevsky/betfair-provider
-2. XLogger: https://github.com/komarevsky/xlogger
-For the moment these projects are not located in any maven-repo,
-so before building of FairLib please download and build it manually:
+*   [Betfair-Provider](https://github.com/komarevsky/betfair-provider)
+*   [XLogger](https://github.com/komarevsky/xlogger)
+For the moment these projects are not located in any maven-repo, so before building of FairLib please download and build it manually:
 
     cd
     mkdir freebetbot
@@ -22,12 +22,15 @@ so before building of FairLib please download and build it manually:
     cd ../xlogger
     mvn clean install   # or follow README instructions if different
 
-Then build FairLib :
+Then build FairLib:
+
     mvn clean install
-NOTE: FairLib requires Java 7
 
+Note: FairLib requires Java 7
+_ _ _
 
-=== AUTHOR ===
+Author
+------
 
-Siarhei Skavarodkin
-email: komarevsky (at) gmail (dot) com
+#### Siarhei Skavarodkin ####
+#### email: komarevsky (at) gmail (dot) com ####
