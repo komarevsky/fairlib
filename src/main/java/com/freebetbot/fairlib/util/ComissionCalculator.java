@@ -8,7 +8,8 @@
 
 package com.freebetbot.fairlib.util;
 
-import com.freebetbot.xlogger.XLogger;
+import org.apache.commons.logging.Log;
+import org.apache.commons.logging.LogFactory;
 
 /**
  *
@@ -18,6 +19,8 @@ public class ComissionCalculator {
     
     public static final double DEFAULT_COMISSION = 0.05;
     
+    private static final Log LOGGER = LogFactory.getLog(ComissionCalculator.class);
+    
     /**
      * returns percentage of comission
      * based on http://help.betfair.com/contents/itemId/i65767827/index.en.html
@@ -26,7 +29,7 @@ public class ComissionCalculator {
      */
     public static double calcComissionPercentByBetfairPoints(int points) {
         double result;
-        XLogger.sendFine("points : " + points);
+        LOGGER.debug("points : " + points);
         
         double discount;
         if (points < 1000) {
@@ -94,7 +97,7 @@ public class ComissionCalculator {
         }
         
         result = DEFAULT_COMISSION * (1-discount);
-        XLogger.sendFine("result: " + result);
+        LOGGER.debug("result: " + result);
         return result;
     }
 

@@ -21,14 +21,17 @@ import com.betfair.publicapi.types.exchange.v5.GetMarketResp;
 import com.betfair.publicapi.types.exchange.v5.SortOrderEnum;
 import com.betfair.publicapi.types.global.v3.GetEventTypesResp;
 import com.freebetbot.fairlib.util.HeaderChecker;
-import com.freebetbot.xlogger.XLogger;
 import javax.xml.datatype.XMLGregorianCalendar;
+import org.apache.commons.logging.Log;
+import org.apache.commons.logging.LogFactory;
 
 /**
  *
  * @author Siarhei Skavarodkin
  */
 public class ReadOnlyAPI {
+    
+    private static final Log LOGGER = LogFactory.getLog(ReadOnlyAPI.class);
     
     /**
      * 
@@ -51,7 +54,7 @@ public class ReadOnlyAPI {
             }
         } catch(Exception ex) {
             result = null;
-            XLogger.sendSevere(ex);
+            LOGGER.error("getAllEvents failure", ex);
             SessionManager.restartSession();
         }
         
@@ -88,7 +91,7 @@ public class ReadOnlyAPI {
             }
         } catch(Exception ex) {
             result = null;
-            XLogger.sendSevere(ex);
+            LOGGER.error("getAllMarkets failure", ex);
             SessionManager.restartSession();
         }
         
@@ -121,7 +124,7 @@ public class ReadOnlyAPI {
             }
         } catch(Exception ex) {
             result = null;
-            XLogger.sendSevere(ex);
+            LOGGER.error("getMarket failure", ex);
             SessionManager.restartSession();
         }
         
@@ -151,7 +154,7 @@ public class ReadOnlyAPI {
             }
         } catch(Exception ex) {
             result = null;
-            XLogger.sendSevere(ex);
+            LOGGER.error("getCompleteMarketPricesCompressed failure", ex);
             SessionManager.restartSession();
         }
         
@@ -180,7 +183,7 @@ public class ReadOnlyAPI {
             }
         } catch(Exception ex) {
             result = null;
-            XLogger.sendSevere(ex);
+            LOGGER.error("getBet failure", ex);
             SessionManager.restartSession();
         }
         
@@ -228,7 +231,7 @@ public class ReadOnlyAPI {
             }
         } catch(Exception ex) {
             result = null;
-            XLogger.sendSevere(ex);
+            LOGGER.error("getMatchedAndUnmatchedBets failure", ex);
             SessionManager.restartSession();
         }
         

@@ -12,7 +12,8 @@ import com.betfair.publicapi.types.global.v3.KeepAliveResp;
 import com.betfair.publicapi.types.global.v3.LoginResp;
 import com.betfair.publicapi.types.global.v3.LogoutResp;
 import com.freebetbot.fairlib.util.HeaderChecker;
-import com.freebetbot.xlogger.XLogger;
+import org.apache.commons.logging.Log;
+import org.apache.commons.logging.LogFactory;
 
 /**
  *
@@ -20,7 +21,8 @@ import com.freebetbot.xlogger.XLogger;
  */
 public class GeneralAPI {
     
-    private static int DEVELOPER_PRODUCT_ID = 82;
+    private static final Log LOGGER = LogFactory.getLog(GeneralAPI.class);
+    private static final int DEVELOPER_PRODUCT_ID = 82;
 
     public static int getDeveloperProductId() {
         return DEVELOPER_PRODUCT_ID;
@@ -44,7 +46,7 @@ public class GeneralAPI {
             }
         } catch(Exception ex) {
             result = null;
-            XLogger.sendSevere(ex);
+            LOGGER.error("login failure", ex);
         }
         
         return result;
@@ -71,7 +73,7 @@ public class GeneralAPI {
             }
         } catch(Exception ex) {
             result = null;
-            XLogger.sendSevere(ex);
+            LOGGER.error("logout failure", ex);
             SessionManager.restartSession();
         }
         
@@ -94,7 +96,7 @@ public class GeneralAPI {
             }
         } catch(Exception ex) {
             result = null;
-            XLogger.sendSevere(ex);
+            LOGGER.error("keepAlive failure", ex);
             SessionManager.restartSession();
         }
         

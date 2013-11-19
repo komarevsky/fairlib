@@ -11,13 +11,16 @@
 import com.betfair.publicapi.types.exchange.v5.GetAccountFundsResp;
 import com.betfair.publicapi.types.global.v3.ViewProfileResp;
 import com.freebetbot.fairlib.util.HeaderChecker;
-import com.freebetbot.xlogger.XLogger;
+import org.apache.commons.logging.Log;
+import org.apache.commons.logging.LogFactory;
 
 /**
  *
  * @author Siarhei Skavarodkin
  */
 public class AccountManagementAPI {
+    
+    private static final Log LOGGER = LogFactory.getLog(AccountManagementAPI.class);
     
     public static GetAccountFundsResp getAccountFunds() {
         GetAccountFundsResp result;
@@ -35,7 +38,7 @@ public class AccountManagementAPI {
             }
         } catch(Exception ex) {
             result = null;
-            XLogger.sendSevere(ex);
+            LOGGER.error(ex.getMessage(), ex);
             SessionManager.restartSession();
         }
         
@@ -58,7 +61,7 @@ public class AccountManagementAPI {
             }
         } catch(Exception ex) {
             result = null;
-            XLogger.sendSevere(ex);
+            LOGGER.error(ex.getMessage(), ex);
             SessionManager.restartSession();
         }
         

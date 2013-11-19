@@ -10,7 +10,8 @@ package com.freebetbot.fairlib.betfair;
 
 import com.betfair.publicapi.v3.bfglobalservice.BFGlobalService;
 import com.betfair.publicapi.v3.bfglobalservice.BFGlobalService_Service;
-import com.freebetbot.xlogger.XLogger;
+import org.apache.commons.logging.Log;
+import org.apache.commons.logging.LogFactory;
 
 /**
  *
@@ -18,16 +19,18 @@ import com.freebetbot.xlogger.XLogger;
  */
 class BFGlobal {
     
+    private static final Log LOGGER = LogFactory.getLog(BFGlobal.class);
+    
     private static BFGlobalService service;
     
     public static BFGlobalService get() {
         if (service == null) {
             try {
-                XLogger.sendFinest("trying to init BFGlobalService");
+                LOGGER.debug("trying to init BFGlobalService");
                 service = new BFGlobalService_Service().getBFGlobalService();
-                XLogger.sendFinest("init of BFGlobalService is complete");
+                LOGGER.debug("init of BFGlobalService is complete");
             } catch (Exception ex) {
-                XLogger.sendSevere(ex);
+                LOGGER.error("error during initialization of BF Global Service", ex);
             }
         }
         return service;

@@ -36,7 +36,8 @@ import com.betfair.publicapi.types.global.v3.LogoutResp;
 import com.betfair.publicapi.types.global.v3.ViewProfileErrorEnum;
 import com.betfair.publicapi.types.global.v3.ViewProfileResp;
 import com.freebetbot.fairlib.util.string.ToStringUtil;
-import com.freebetbot.xlogger.XLogger;
+import org.apache.commons.logging.Log;
+import org.apache.commons.logging.LogFactory;
 
 /**
  * This class checks all kinds of responces. Returns true if response is ok,
@@ -52,6 +53,8 @@ import com.freebetbot.xlogger.XLogger;
  * @author Siarhei Skavarodkin
  */
 public class HeaderChecker {
+   
+    private static final Log LOGGER = LogFactory.getLog(HeaderChecker.class);
     
     public static boolean isHeaderOk(com.betfair.publicapi.types.exchange.v5.APIResponseHeader header) {
         boolean result = false;
@@ -62,7 +65,7 @@ public class HeaderChecker {
                 header.getErrorCode() == com.betfair.publicapi.types.exchange.v5.APIErrorEnum.OK) {
             result = true;
         } else {
-            XLogger.sendWarning("Header is not ok:\n" + ToStringUtil.headerToString(header));
+            LOGGER.warn("Header is not ok:\n" + ToStringUtil.headerToString(header));
         }
         
         return result;
@@ -77,7 +80,7 @@ public class HeaderChecker {
                 header.getErrorCode() == APIErrorEnum.OK) {
             result = true;
         } else {
-            XLogger.sendWarning("Header is not ok:\n" + ToStringUtil.headerToString(header));
+            LOGGER.warn("Header is not ok:\n" + ToStringUtil.headerToString(header));
         }
         
         return result;
@@ -91,7 +94,7 @@ public class HeaderChecker {
                 isHeaderOk(resp.getHeader())) {
             result = true;
         } else {
-            XLogger.sendWarning("Response is not ok:\n" + ToStringUtil.loginToString(resp));
+            LOGGER.warn("Response is not ok:\n" + ToStringUtil.loginToString(resp));
         }
         
         return result;
@@ -104,7 +107,7 @@ public class HeaderChecker {
                 resp.getErrorCode() == LogoutErrorEnum.OK) {
             result = true;
         } else {
-            XLogger.sendWarning("Response is not ok:\n" + ToStringUtil.logoutToString(resp));
+            LOGGER.warn("Response is not ok:\n" + ToStringUtil.logoutToString(resp));
         }
         
         return result;
@@ -117,7 +120,7 @@ public class HeaderChecker {
                 isHeaderOk(resp.getHeader())) {
             result = true;
         } else {
-            XLogger.sendWarning("Response is not ok:\n" + ToStringUtil.keepAliveToString(resp));
+            LOGGER.warn("Response is not ok:\n" + ToStringUtil.keepAliveToString(resp));
         }
         
         return result;
@@ -131,7 +134,7 @@ public class HeaderChecker {
                 isHeaderOk(resp.getHeader())) {
             result = true;
         } else {
-            XLogger.sendWarning("Response is not ok:\n" + ToStringUtil.getAccountFundsToString(resp));
+            LOGGER.warn("Response is not ok:\n" + ToStringUtil.getAccountFundsToString(resp));
         }
         
         return result;
@@ -145,7 +148,7 @@ public class HeaderChecker {
                 isHeaderOk(resp.getHeader())) {
             result = true;
         } else {
-            XLogger.sendWarning("Response is not ok:\n" + ToStringUtil.viewProfileToString(resp));
+            LOGGER.warn("Response is not ok:\n" + ToStringUtil.viewProfileToString(resp));
         }
         
         return result;
@@ -159,7 +162,7 @@ public class HeaderChecker {
                 isHeaderOk(resp.getHeader())) {
             result = true;
         } else {
-            XLogger.sendWarning("Response is not ok:\n" + ToStringUtil.getEventTypesToString(resp));
+            LOGGER.warn("Response is not ok:\n" + ToStringUtil.getEventTypesToString(resp));
         }
         
         return result;
@@ -173,7 +176,7 @@ public class HeaderChecker {
                 isHeaderOk(resp.getHeader())) {
             result = true;
         } else {
-            XLogger.sendWarning("Response is not ok:\n" + ToStringUtil.getAllMarketsToString(resp));
+            LOGGER.warn("Response is not ok:\n" + ToStringUtil.getAllMarketsToString(resp));
         }
         
         return result;
@@ -187,7 +190,7 @@ public class HeaderChecker {
                 isHeaderOk(resp.getHeader())) {
             result = true;
         } else {
-            XLogger.sendWarning("Response is not ok:\n" + ToStringUtil.getMarketToString(resp));
+            LOGGER.warn("Response is not ok:\n" + ToStringUtil.getMarketToString(resp));
         }
         
         return result;
@@ -201,7 +204,7 @@ public class HeaderChecker {
                 isHeaderOk(resp.getHeader())) {
             result = true;
         } else {
-            XLogger.sendWarning("Response is not ok:\n" + 
+            LOGGER.warn("Response is not ok:\n" + 
                     ToStringUtil.getCompleteMarketPricesCompressedToString(resp));
         }
         
@@ -216,7 +219,7 @@ public class HeaderChecker {
                 isHeaderOk(resp.getHeader())) {
             result = true;
         } else {
-            XLogger.sendWarning("Response is not ok:\n" + 
+            LOGGER.warn("Response is not ok:\n" + 
                     ToStringUtil.getBetToString(resp));
         }
         
@@ -231,7 +234,7 @@ public class HeaderChecker {
                 isHeaderOk(resp.getHeader())) {
             result = true;
         } else {
-            XLogger.sendWarning("Response is not ok:\n" + 
+            LOGGER.warn("Response is not ok:\n" + 
                     ToStringUtil.placeBetsToString(resp));
         }
         
@@ -246,7 +249,7 @@ public class HeaderChecker {
                 isHeaderOk(resp.getHeader())) {
             result = true;
         } else {
-            XLogger.sendWarning("Response is not ok:\n" + 
+            LOGGER.warn("Response is not ok:\n" + 
                     ToStringUtil.cancelBetsToString(resp));
         }
         
@@ -262,7 +265,7 @@ public class HeaderChecker {
                 isHeaderOk(resp.getHeader())) {
             result = true;
         } else {
-            XLogger.sendWarning("Response is not ok:\n" + 
+            LOGGER.warn("Response is not ok:\n" + 
                     ToStringUtil.GetMUBetsToString(resp));
         }
         

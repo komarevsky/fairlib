@@ -8,8 +8,9 @@
 
 package com.freebetbot.fairlib.util;
 
-import com.freebetbot.xlogger.XLogger;
 import java.util.Date;
+import org.apache.commons.logging.Log;
+import org.apache.commons.logging.LogFactory;
 
 /**
  *
@@ -18,6 +19,8 @@ import java.util.Date;
 public class Waiter {
     
     public static final long ONE_SECOND = 1000; // 1s - 1000 ms
+    
+    private static final Log LOGGER = LogFactory.getLog(Waiter.class);
     
         /**
      * how much to sleep in milliseconds
@@ -29,7 +32,7 @@ public class Waiter {
                 Thread.sleep(ms);
             }
         } catch (InterruptedException ex) {
-            XLogger.sendSevere(ex);
+            LOGGER.error(ex.getMessage(), ex);
         }
     }
     

@@ -16,17 +16,14 @@ import com.betfair.publicapi.types.exchange.v5.BetCategoryTypeEnum;
 import com.betfair.publicapi.types.exchange.v5.BetPersistenceTypeEnum;
 import com.betfair.publicapi.types.exchange.v5.BetTypeEnum;
 import com.betfair.publicapi.types.exchange.v5.PlaceBets;
-import com.betfair.publicapi.types.exchange.v5.PlaceBetsErrorEnum;
-import com.betfair.publicapi.types.exchange.v5.PlaceBetsResp;
-import com.betfair.publicapi.types.exchange.v5.PlaceBetsResult;
-import com.betfair.publicapi.types.exchange.v5.PlaceBetsResultEnum;
-import com.freebetbot.xlogger.XLogger;
 import java.util.Arrays;
 import java.util.Date;
 import java.util.GregorianCalendar;
 import javax.xml.datatype.DatatypeConfigurationException;
 import javax.xml.datatype.DatatypeFactory;
 import javax.xml.datatype.XMLGregorianCalendar;
+import org.apache.commons.logging.Log;
+import org.apache.commons.logging.LogFactory;
 
 /**
  *
@@ -34,6 +31,8 @@ import javax.xml.datatype.XMLGregorianCalendar;
  */
 public class TypeCreator {
 
+    private static final Log LOGGER = LogFactory.getLog(TypeCreator.class);
+    
     public static ArrayOfInt createArrayOfInt(int... numbers) {
         ArrayOfInt result = new ArrayOfInt();
         
@@ -64,7 +63,9 @@ public class TypeCreator {
             result = DatatypeFactory.newInstance().newXMLGregorianCalendar(time);
         } catch (DatatypeConfigurationException ex) {
             result = null;
-            XLogger.sendSevere(ex);
+            String msg = "creation of XMLGregorianCalendar has failed. Input param="
+                    + date;
+            LOGGER.error(msg, ex);
         }
         
         return result;

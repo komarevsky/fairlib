@@ -12,9 +12,10 @@ import com.freebetbot.fairlib.type.MarketPrices;
 import com.freebetbot.fairlib.type.RemovedRunner;
 import com.freebetbot.fairlib.type.RunnerInfo;
 import com.freebetbot.fairlib.type.RunnerPrice;
-import com.freebetbot.xlogger.XLogger;
 import java.util.ArrayList;
 import java.util.List;
+import org.apache.commons.logging.Log;
+import org.apache.commons.logging.LogFactory;
 
 /**
  *
@@ -22,6 +23,8 @@ import java.util.List;
  */
 public class MarketPricesParser {
 
+    private static final Log LOGGER = LogFactory.getLog(MarketPricesParser.class);
+    
     /**
      * parses result of getCompleteMarketPricesCompressed
      * @param parseable what to parse
@@ -90,7 +93,7 @@ public class MarketPricesParser {
             result.setRunnersInfo(runnerInfoList);
                         
         } catch (Exception ex) {
-            XLogger.sendSevere(ex);
+            LOGGER.error("market prices parsing has failed", ex);
             result = null;
         }
         
@@ -115,7 +118,7 @@ public class MarketPricesParser {
 
             String[] parts = parseable.split("\\|");
             if (parts.length == 0) {
-                XLogger.sendWarning("number of parts to parse is 0");
+                LOGGER.warn("number of parts to parse is 0");
                 return null;
             }
                         
@@ -127,7 +130,7 @@ public class MarketPricesParser {
 
                 //selection id
                 if (array[0].isEmpty() || array[0].equals(" ")) {
-                    XLogger.sendWarning("selection id is not specified");
+                    LOGGER.warn("selection id is not specified");
                     return null;
                 }
                 result.setSelectionId(Integer.parseInt(array[0]));
@@ -173,7 +176,7 @@ public class MarketPricesParser {
                 }
 
             } else {
-                XLogger.sendWarning("Not found 11 fields of RunnerInfo:\n" + parseable);
+                LOGGER.warn("Not found 11 fields of RunnerInfo:\n" + parseable);
                 result = null;
             }
             
@@ -183,7 +186,7 @@ public class MarketPricesParser {
             int numberFieldsOfRunnerPrice = 5; //5 is number of fields in RunnerPrice
             array = parts[1].split("~");
             if (array.length % numberFieldsOfRunnerPrice != 0) {
-                XLogger.sendWarning("Number of fields is not " + numberFieldsOfRunnerPrice);
+                LOGGER.warn("Number of fields is not " + numberFieldsOfRunnerPrice);
             } else {
                 int numberPrices = array.length / numberFieldsOfRunnerPrice;
                 for (int i = 0; i < numberPrices; ++i) {
@@ -202,7 +205,7 @@ public class MarketPricesParser {
             result.setRunnerPrices(list);
 
         } catch (Exception ex) {
-            XLogger.sendSevere(ex);
+            LOGGER.error("runner info parsing has failed", ex);
             result = null;
         }
 
@@ -224,7 +227,7 @@ public class MarketPricesParser {
             result.setTotalBSPBackAvailableAmount(Double.parseDouble(totalBSPBackAvailableAmount));
             result.setTotalBSPLayAvailableAmount(Double.parseDouble(totalBSPLayAvailableAmount));
         } catch(Exception ex) {
-            XLogger.sendSevere(ex);
+            LOGGER.error("runner price creation has failed", ex);
             result = null;
         }
         

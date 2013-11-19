@@ -13,13 +13,16 @@ import com.betfair.publicapi.types.exchange.v5.ArrayOfPlaceBets;
 import com.betfair.publicapi.types.exchange.v5.CancelBetsResp;
 import com.betfair.publicapi.types.exchange.v5.PlaceBetsResp;
 import com.freebetbot.fairlib.util.HeaderChecker;
-import com.freebetbot.xlogger.XLogger;
+import org.apache.commons.logging.Log;
+import org.apache.commons.logging.LogFactory;
 
 /**
  *
  * @author Siarhei Skavarodkin
  */
 public class BetPlacementAPI {
+    
+    private static final Log LOGGER = LogFactory.getLog(BetPlacementAPI.class);
     
     public static PlaceBetsResp placeBets(ArrayOfPlaceBets bets) {
         PlaceBetsResp result;
@@ -37,7 +40,7 @@ public class BetPlacementAPI {
             }
         } catch(Exception ex) {
             result = null;
-            XLogger.sendSevere(ex);
+            LOGGER.error("placeBets failure", ex);
             SessionManager.restartSession();
         }
         
@@ -60,7 +63,7 @@ public class BetPlacementAPI {
             }
         } catch(Exception ex) {
             result = null;
-            XLogger.sendSevere(ex);
+            LOGGER.error("cancelBets failure", ex);
             SessionManager.restartSession();
         }
         

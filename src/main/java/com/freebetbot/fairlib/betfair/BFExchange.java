@@ -10,7 +10,8 @@ package com.freebetbot.fairlib.betfair;
 
 import com.betfair.publicapi.v5.bfexchangeservice.BFExchangeService;
 import com.betfair.publicapi.v5.bfexchangeservice.BFExchangeService_Service;
-import com.freebetbot.xlogger.XLogger;
+import org.apache.commons.logging.Log;
+import org.apache.commons.logging.LogFactory;
 
 /**
  *
@@ -18,16 +19,18 @@ import com.freebetbot.xlogger.XLogger;
  */
 class BFExchange {
 
+    private static final Log LOGGER = LogFactory.getLog(BFExchange.class);
+    
     private static BFExchangeService service;
     
     public static BFExchangeService get() {
         if (service == null) {
             try {
-                XLogger.sendFinest("trying to init BFExchangeService");
+                LOGGER.debug("trying to init BFExchangeService");
                 service = new BFExchangeService_Service().getBFExchangeService();
-                XLogger.sendFinest("init of BFExchangeService is complete");
+                LOGGER.debug("init of BFExchangeService is complete");
             } catch (Exception ex) {
-                XLogger.sendSevere(ex);
+                LOGGER.error("error during initialization of Exchnage Service", ex);
             }
         }
         return service;

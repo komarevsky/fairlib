@@ -13,7 +13,8 @@ import com.betfair.publicapi.types.global.v3.APIResponseHeader;
 import com.betfair.publicapi.types.global.v3.LoginResp;
 import com.freebetbot.fairlib.util.HeaderChecker;
 import com.freebetbot.fairlib.util.Waiter;
-import com.freebetbot.xlogger.XLogger;
+import org.apache.commons.logging.Log;
+import org.apache.commons.logging.LogFactory;
 
 /**
  *
@@ -21,6 +22,8 @@ import com.freebetbot.xlogger.XLogger;
  */
 class SessionManager implements Runnable {
 
+    private static final Log LOGGER = LogFactory.getLog(SessionManager.class);
+    
     private static String user;
     private static String password;
     private static int productId;
@@ -142,15 +145,15 @@ class SessionManager implements Runnable {
     
     private static void restartSessionImpl() {
         if (user == null || user.isEmpty() || password == null || password.isEmpty()) {
-            XLogger.sendWarning("user and/or password are not set: restoring of session is not possible");
+            LOGGER.warn("user and/or password are not set: restoring of session is not possible");
             return;
         }
         
         if (restartInitiated) {
-            XLogger.sendInfo("restart of session has ALREADY been initiated. Please, wait.");
+            LOGGER.info("restart of session has ALREADY been initiated. Please, wait.");
             return;
         } else {
-            XLogger.sendWarning("restart of session has been initiated");
+            LOGGER.warn("restart of session has been initiated");
             restartInitiated = true;
         }
         
@@ -161,10 +164,10 @@ class SessionManager implements Runnable {
             Waiter.waitForSpecifiedTime(Waiter.ONE_SECOND * 10); // every 10 seconds
             
             try{
-                XLogger.sendInfo("trying to login");
+                LOGGER.info("trying to login");
                 resp = BFOperation.login(user, password, productId);
             } catch (Exception ex) {
-                XLogger.sendSevere(ex);
+                LOGGER.error("login attempt has failed", ex);
             }
         } while (HeaderChecker.isLoginResponseOk(resp) != true);
         

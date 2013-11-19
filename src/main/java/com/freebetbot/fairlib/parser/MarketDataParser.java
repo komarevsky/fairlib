@@ -9,10 +9,11 @@
 package com.freebetbot.fairlib.parser;
 
 import com.freebetbot.fairlib.type.MarketData;
-import com.freebetbot.xlogger.XLogger;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
+import org.apache.commons.logging.Log;
+import org.apache.commons.logging.LogFactory;
 
 /**
  *
@@ -20,6 +21,8 @@ import java.util.List;
  */
 public class MarketDataParser {
 
+    private static final Log LOGGER = LogFactory.getLog(MarketDataParser.class);
+    
     /**
      * parses marketData string array and returns list of MarketData objects
      * @param marketData
@@ -41,7 +44,7 @@ public class MarketDataParser {
             String[] marketString = el.split("~");
 
             if (marketString.length != MarketData.COUNT_OF_FIELDS) {
-                XLogger.sendWarning("incorrect format of market data:\n" + el);
+                LOGGER.warn("incorrect format of market data:\n" + el);
                 continue;
             }
             
@@ -75,7 +78,7 @@ public class MarketDataParser {
                 }
             } catch(Exception ex) {
                 String msg = "exception during conversion String array to MarketData:\n" + ex;
-                XLogger.sendWarning(msg);
+                LOGGER.warn(msg);
                 market = null;
             }
 
