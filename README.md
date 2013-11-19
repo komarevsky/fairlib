@@ -27,7 +27,7 @@ Then build FairLib:
 
         mvn clean install
 
-**Note**: FairLib requires Java 7
+**Note**: FairLib requires Java 6
 _ _ _
 
 Author
