@@ -41,7 +41,7 @@ public class FairPrice {
             {100, MAX_PRICE, 10}
         };
         
-        ruleList = new ArrayList<>();
+        ruleList = new ArrayList<Rule>();
         for (double[] rule : betfairRules) {
             double from = rule[0];
             double to = rule[1];

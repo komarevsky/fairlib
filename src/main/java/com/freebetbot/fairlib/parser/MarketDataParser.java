@@ -26,7 +26,7 @@ public class MarketDataParser {
      * @return list of MarketData
      */
     public static List<MarketData> parseMarketData (String marketData) {
-        List<MarketData> result = new ArrayList<>();
+        List<MarketData> result = new ArrayList<MarketData>();
         
         //replace undesired \: before splitting, by safe character
         marketData = marketData.replace("\\:","=");

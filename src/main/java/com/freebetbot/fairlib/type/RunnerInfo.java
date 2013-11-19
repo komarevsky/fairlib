@@ -134,7 +134,7 @@ public class RunnerInfo {
      * @return sorted BackPrices
      */
     public List<RunnerPrice> getBestBackPrices() {
-        List<RunnerPrice> prices = new ArrayList<>();
+        List<RunnerPrice> prices = new ArrayList<RunnerPrice>();
         
         for (RunnerPrice p : runnerPrices) {
             if (p.getBackAmountAvailable() > 0) {
@@ -153,7 +153,7 @@ public class RunnerInfo {
      * @return sorted LayPrices
      */
     public List<RunnerPrice> getBestLayPrices() {
-        List<RunnerPrice> prices = new ArrayList<>();
+        List<RunnerPrice> prices = new ArrayList<RunnerPrice>();
         
         for (RunnerPrice p : runnerPrices) {
             if (p.getLayAmountAvailable() > 0) {

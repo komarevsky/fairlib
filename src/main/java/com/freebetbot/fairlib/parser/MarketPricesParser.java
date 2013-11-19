@@ -52,7 +52,7 @@ public class MarketPricesParser {
             //remove from string what we already parsed
             parseable = parseable.substring(sMarketId.length() + sInPlayDelay.length() + 2);
             
-            List<RemovedRunner> removedRunners = new ArrayList<>();
+            List<RemovedRunner> removedRunners = new ArrayList<RemovedRunner>();
             //check if info about removed runners is present
             if (parseable.charAt(0) != ':') {
                 array = parseable.split(";");
@@ -77,7 +77,7 @@ public class MarketPricesParser {
             //remove first : char
             parseable = parseable.substring(1);
             
-            List<RunnerInfo> runnerInfoList = new ArrayList<>();
+            List<RunnerInfo> runnerInfoList = new ArrayList<RunnerInfo>();
             
             //split string on runner info
             array = parseable.split(":");
@@ -177,7 +177,7 @@ public class MarketPricesParser {
                 result = null;
             }
             
-            List<RunnerPrice> list = new ArrayList<>();
+            List<RunnerPrice> list = new ArrayList<RunnerPrice>();
             
             //part with prices
             int numberFieldsOfRunnerPrice = 5; //5 is number of fields in RunnerPrice
