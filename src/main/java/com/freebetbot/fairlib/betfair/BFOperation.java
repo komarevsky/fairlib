@@ -1,11 +1,3 @@
-/*
- * FairLib software is published under GPLv2 license
- *
- * Author : Siarhei Skavarodkin
- * email  : komarevsky (at) gmail (dot) com
- *
- */
-
 package com.freebetbot.fairlib.betfair;
 
 import com.betfair.publicapi.types.exchange.v5.ArrayOfBetId;
@@ -13,10 +5,7 @@ import com.betfair.publicapi.types.exchange.v5.ArrayOfCancelBets;
 import com.betfair.publicapi.types.exchange.v5.ArrayOfCountryCode;
 import com.betfair.publicapi.types.exchange.v5.ArrayOfInt;
 import com.betfair.publicapi.types.exchange.v5.ArrayOfPlaceBets;
-import com.betfair.publicapi.types.exchange.v5.BetCategoryTypeEnum;
-import com.betfair.publicapi.types.exchange.v5.BetPersistenceTypeEnum;
 import com.betfair.publicapi.types.exchange.v5.BetStatusEnum;
-import com.betfair.publicapi.types.exchange.v5.BetTypeEnum;
 import com.betfair.publicapi.types.exchange.v5.BetsOrderByEnum;
 import com.betfair.publicapi.types.exchange.v5.CancelBetsReq;
 import com.betfair.publicapi.types.exchange.v5.CancelBetsResp;
@@ -32,7 +21,6 @@ import com.betfair.publicapi.types.exchange.v5.GetMUBetsReq;
 import com.betfair.publicapi.types.exchange.v5.GetMUBetsResp;
 import com.betfair.publicapi.types.exchange.v5.GetMarketReq;
 import com.betfair.publicapi.types.exchange.v5.GetMarketResp;
-import com.betfair.publicapi.types.exchange.v5.PlaceBets;
 import com.betfair.publicapi.types.exchange.v5.PlaceBetsReq;
 import com.betfair.publicapi.types.exchange.v5.PlaceBetsResp;
 import com.betfair.publicapi.types.exchange.v5.SortOrderEnum;

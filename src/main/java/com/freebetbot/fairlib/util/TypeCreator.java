@@ -1,11 +1,3 @@
-/*
- * FairLib software is published under GPLv2 license
- *
- * Author : Siarhei Skavarodkin
- * email  : komarevsky (at) gmail (dot) com
- *
- */
-
 package com.freebetbot.fairlib.util;
 
 import com.betfair.publicapi.types.exchange.v5.ArrayOfBetId;

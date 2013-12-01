@@ -1,11 +1,3 @@
-/*
- * FairLib software is published under GPLv2 license
- *
- * Author : Siarhei Skavarodkin
- * email  : komarevsky (at) gmail (dot) com
- *
- */
-
 package com.freebetbot.fairlib.util;
 
 import java.util.Date;
@@ -22,7 +14,7 @@ public class Waiter {
     
     private static final Log LOGGER = LogFactory.getLog(Waiter.class);
     
-        /**
+    /**
      * how much to sleep in milliseconds
      * @param ms how much to sleep
      */

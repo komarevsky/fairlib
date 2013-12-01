@@ -1,11 +1,3 @@
-/*
- * FairLib software is published under GPLv2 license
- *
- * Author : Siarhei Skavarodkin
- * email  : komarevsky (at) gmail (dot) com
- *
- */
-
 package com.freebetbot.fairlib.util.string;
 
 import com.betfair.publicapi.types.exchange.v5.Bet;
@@ -29,7 +21,6 @@ import com.betfair.publicapi.types.global.v3.KeepAliveResp;
 import com.betfair.publicapi.types.global.v3.LoginResp;
 import com.betfair.publicapi.types.global.v3.LogoutResp;
 import com.betfair.publicapi.types.global.v3.ViewProfileResp;
-import java.util.List;
 
 /**
  * Returns string-presentation of different classes

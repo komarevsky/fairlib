@@ -1,11 +1,3 @@
-/*
- * FairLib software is published under GPLv2 license
- *
- * Author : Siarhei Skavarodkin
- * email  : komarevsky (at) gmail (dot) com
- *
- */
-
 package com.freebetbot.fairlib.type;
 
 import java.math.BigDecimal;
@@ -23,7 +15,7 @@ public class FairPrice {
     private static final double MAX_PRICE = 1000;
 
     // list of rules for every possible interval
-    private static List<Rule> ruleList;
+    private static final List<Rule> ruleList;
 
     //initialization of ruleList
     static {

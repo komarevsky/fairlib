@@ -1,16 +1,6 @@
-/*
- * FairLib software is published under GPLv2 license
- *
- * Author : Siarhei Skavarodkin
- * email  : komarevsky (at) gmail (dot) com
- *
- */
-
 package com.freebetbot.test.fairlib.type;
 
 import com.freebetbot.fairlib.type.FairPrice;
-import java.math.BigDecimal;
-import java.math.RoundingMode;
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;
@@ -20,7 +10,7 @@ import static org.junit.Assert.*;
 
 /**
  *
- * @author Администратор
+ * @author Siarhei Skavarodkin
  */
 public class PriceTest {
     

@@ -1,14 +1,5 @@
-/*
- * FairLib software is published under GPLv2 license
- *
- * Author : Siarhei Skavarodkin
- * email  : komarevsky (at) gmail (dot) com
- *
- */
-
 package com.freebetbot.fairlib.util.string;
 
-import com.betfair.publicapi.types.exchange.v5.Bet;
 import com.betfair.publicapi.types.exchange.v5.CancelBetsResp;
 import com.betfair.publicapi.types.exchange.v5.CancelBetsResult;
 import com.betfair.publicapi.types.exchange.v5.GetAccountFundsResp;
@@ -18,11 +9,8 @@ import com.betfair.publicapi.types.exchange.v5.GetCompleteMarketPricesCompressed
 import com.betfair.publicapi.types.exchange.v5.GetMUBetsResp;
 import com.betfair.publicapi.types.exchange.v5.GetMarketResp;
 import com.betfair.publicapi.types.exchange.v5.MUBet;
-import com.betfair.publicapi.types.exchange.v5.Market;
 import com.betfair.publicapi.types.exchange.v5.PlaceBetsResp;
 import com.betfair.publicapi.types.exchange.v5.PlaceBetsResult;
-import com.betfair.publicapi.types.global.v3.APIRequestHeader;
-import com.betfair.publicapi.types.global.v3.APIResponseHeader;
 import com.betfair.publicapi.types.global.v3.EventType;
 import com.betfair.publicapi.types.global.v3.GetEventTypesResp;
 import com.betfair.publicapi.types.global.v3.KeepAliveResp;

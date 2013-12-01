@@ -1,11 +1,3 @@
-/*
- * FairLib software is published under GPLv2 license
- *
- * Author : Siarhei Skavarodkin
- * email  : komarevsky (at) gmail (dot) com
- *
- */
-
 package com.freebetbot.fairlib.betfair;
 
 import com.freebetbot.fairlib.util.Waiter;
@@ -14,7 +6,7 @@ import com.freebetbot.fairlib.util.Waiter;
  * according to http://bdp.betfair.com/index.php?option=com_content&task=view&id=36&Itemid=62
  * some requests have time limitations.
  * Here is list of time limitations for requests.
- * @author xssk
+ * @author Siarhei Skavarodkin
  */
 public class BFWaiter extends Waiter {
     
