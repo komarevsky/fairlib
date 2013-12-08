@@ -7,7 +7,7 @@ _ _ _
 Build
 -----
 
-FairLib project depends on the following project:
+FairLib project depends on the following projects:
 *   [Betfair-Provider](https://github.com/komarevsky/betfair-provider)
 *   [Apache-Commons-Logging](http://commons.apache.org/proper/commons-logging)
 
@@ -16,7 +16,7 @@ First download FairLib:
         cd
         mkdir freebetbot
         cd freebetbot
-        git https://github.com/komarevsky/fairlib fairlib
+        git clone https://github.com/komarevsky/fairlib fairlib
 
 Then build FairLib:
 
